@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mental Health Awareness</title>
+</head>
+<body>
+ 
+<h1 id="how">Schedule Planning</h1>
+<!--<h1 style="background-color:rgb(56, 255, 30);">Hello World</h1> -->
+<!--background-image: url(https://www.brainfacts.org/-/media/Brainfacts2/Diseases-and-Disorders/Mental-Health/Article-Images/depression-infographic-thumb-new.png);-->
+ 
+ <style>
+     
+    body {
+        background-image: url(https://www.lvlfi.com/wp-content/uploads/2020/09/Blog-56.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      
+    }
+    #how
+    {
+        text-align: center;
+    }
+    table{
+       
+    border-spacing: 5px;
+    background-color: #f1f1c1;
+ 
+    
+    }
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+    th, td {
+  padding: 15px;
+}
+th {
+  text-align: left;
+}
+#how{
+    background-color:rgba(108, 147, 255, 0.514);
+}
+    </style>
+ 
+ 
+<!--timetable-->
+<form id="form" onsubmit="return false;">
+     
+ 
+<p id="wake">When do you wake up(e.g 8:00)</p>
+ <input id="time0" type="number" value = "0" > 
+<!--<input type = "submit">-->
+ 
+ 
+<p id="tasks">How many tasks do you have today?(e.g. 10)</p>
+ <input id="name0" type="number" value = "0" > 
+<!--<input type = "submit">-->
+ 
+<p id="1a">What is your first task(e.g. Biology HW)</p>
+ <input id="name1" type="String" value = "0"  > 
+ 
+<!--<input type = "submit">-->
+<p id="1b">How many hours would it take?(e.g. 2)</p>
+ <input id="time1" type="number" value = "0"  > 
+ 
+<!--<input type = "submit">-->
+<p id="2a">What is your second task(e.g. Geo HW)</p>
+ <input id="name2" type="String" value = "0"  > 
+ 
+<!--<input type = "submit">-->
+<p id="2b">How many hours would it take?(e.g. 2)</p>
+  <input id="time2" type="number" value = "0"  >  
+ 
+ 
+<!--<input type = "submit">--> 
+<p id="3a">What is your third task(e.g. Essay)</p>
+ <input id="name3" type="String" value = "0" > 
+ 
+ 
+<!--<input type = "submit">-->
+<p id = "3b">How many hours would it take?(e.g. 3)</p>
+ <input id="time3" type="number" value = "0"  >  
+ 
+ 
+<!--<input type = "submit">-->
+<p id = "4a">What is your fourth task(e.g. Sports)</p>
+ <input id="name4" type="String" value = "0"  > 
+  
+<!--<input type = "submit">-->
+<p id = "4b">How many hours would it take?(e.g. 2)</p>
+ <input id="time4" type="number" value = "0"  >  
+  
+<!--<input type = "submit">-->
+<p id="5a">What is your fifth task(e.g. Read)</p>
+  <input id="name5" type="String" value = "0"  > 
+  
+<p id = "5b">How many hours would it take?(e.g. 2)</p>
+  <input id="time5" type="number" value = "0"  >  
+  <br></br>
+<button onclick="getTaskTime()">submit</button>
+<br></br>
+ 
+ 
+<script>
+    
+ 
+       var arrayName = new Array(6);
+       var arrayTime = new Array(6);
+    function getTaskTime(){
+       for( i=0; i<6;i++){
+           arrayName[i]=document.getElementById("name"+[i]).value;
+           console.log(arrayName[i]);
+           
+           //arrayName[0 ] number of tasks
+       }
+       for( i=0; i<6;i++){
+           arrayTime[i]=document.getElementById("time"+[i]).value;
+           console.log(arrayTime[i]);
+           //arrayTime[0] = wake up time
+       }
+       setTable();
+    }
+    function setTable(){
+ 
+        console.log("i'm in set table");
+ 
+        document.getElementById("n1").innerText = "First Task: "+ arrayName[1];
+        document.getElementById("t1").innerText = arrayTime[1];
+        document.getElementById("l1").innerText = arrayTime[0]+": 00"+" - "+(parseInt(arrayTime[0])+parseInt(arrayTime[1]))+" : 00";
+ 
+        document.getElementById("n2").innerText = "Second Task: "+arrayName[2];
+        document.getElementById("t2").innerText = arrayTime[2];
+        document.getElementById("l2").innerText = (parseInt(arrayTime[0])+parseInt(arrayTime[1]))+" : 00"+ " - " + (parseInt(arrayTime[0])+parseInt(arrayTime[1]) + parseInt(arrayTime[2]))+" : 00";
+ 
+        document.getElementById("n3").innerText = "Third Task: "+arrayName[3];
+        document.getElementById("t3").innerText = arrayTime[3];
+        document.getElementById("l3").innerText =(parseInt(arrayTime[0])+parseInt(arrayTime[1]) + parseInt(arrayTime[2]))+ " : 00"+ " - " + ((parseInt(arrayTime[0])+parseInt(arrayTime[1]) + parseInt(arrayTime[2]))+ parseInt(arrayTime[3]))+" : 00";
+ 
+        document.getElementById("n4").innerText = "Fourth Task: "+arrayName[4];
+        document.getElementById("t4").innerText = arrayTime[4];
+        document.getElementById("l4").innerText = ((parseInt(arrayTime[0])+parseInt(arrayTime[1]) + parseInt(arrayTime[2]))+ parseInt(arrayTime[3]))+ " : 00"+ " - " + (((parseInt(arrayTime[0])+parseInt(arrayTime[1]) + parseInt(arrayTime[2]))+ parseInt(arrayTime[3]))+ parseInt(arrayTime[4]))+" : 00";
+ 
+        document.getElementById("n5").innerText = "Fifth Task: "+arrayName[5];
+        document.getElementById("t5").innerText = arrayTime[5];
+        document.getElementById("l5").innerText =(((parseInt(arrayTime[0])+parseInt(arrayTime[1]) + parseInt(arrayTime[2]))+ parseInt(arrayTime[3]))+ parseInt(arrayTime[4]))+ " : 00"+ " - " + ((((parseInt(arrayTime[0])+parseInt(arrayTime[1]) + parseInt(arrayTime[2]))+ parseInt(arrayTime[3]))+ parseInt(arrayTime[4])) + parseInt(arrayTime[5]))+" : 00";
+        
+    }
+</script>
+ 
+<!--function pr() {
+    document.getElementById("result").innerHTML = document.getElementById('fname').value + " " + document.getElementById('mname').value + " " + document.getElementById('lname').value;
+  }-->
+   
+  
+ 
+ <table style="width:100%">
+  
+    <tr>
+        <th>Task</th>
+        <th>Length</th>
+        <th>Time</th>
+      </tr>
+      <tr>
+         
+          
+        <!--<td>  <p id="n1"> <script>document.getElementById("name1").value</script> </p> </td>
+        <td>  <p id="t1"> <script>document.getElementById("time1").value</script> </p> </td>
+        <t
+        
+        d>  <p id="l1"> <script>document.getElementById("time0").value</script></p> </td>--->
+ 
+ 
+       <td>  <p id="n1">  </p> </td>
+        <td>  <p id="t1"> </p> </td>
+        <td>  <p id="l1"> </p> </td>
+ 
+        <!--<td>  <p id="n1"> <script>document.write(document.getElementById("name1").value)</script> </p> </td>
+        //<td>  <p id="t1"> <script>document.write(document.getElementById("time1").value)</script> </p> </td>
+        //<td>  <p id="l1"> <script>document.write(document.getElementById("time0").value)</script></p> </td>-->
+ 
+      </tr>
+      <tr>
+        <td>  <p id="n2">  </p> </td>
+        <td>  <p id="t2"></p> </td>
+        <td>  <p id="l2"> </p> </td>
+ 
+       <!--- <td>  <p id="n2"> <script>document.getElementById("name2").value</script> </p> </td>
+        <td>  <p id="t2"> <script>document.getElementById("time2").value</script> </p> </td>
+        <td>  <p id="l2">  00 </p> </td>-->
+ 
+      </tr>
+      <tr>
+        <td>  <p id="n3"> </p> </td>
+        <td>  <p id="t3"> </p> </td>
+        <td>  <p id="l3"></p> </td>
+ 
+        <!--<td>  <p id="n3"> <script>document.getElementById("name3").value</script> </p> </td>
+        <td>  <p id="t3"> <script>document.getElementById("time3").value</script> </p> </td>
+        <td>  <p id="l3">  00 </p> </td>-->
+      </tr>
+      <tr>
+        <td>  <p id="n4"> </p> </td>
+        <td> <p id="t4"> </p> </td>
+        <td> <p id="l4"></p> </td>
+ 
+        <!--<td>  <p id="n4"> <script>document.getElementById("name4").value</script> </p> </td>
+        <td>  <p id="t4"> <script>document.getElementById("time4").value</script> </p> </td>
+        <td>  <p id="l4">  00 </p> </td>-->
+      </tr>
+      <tr>
+        <td>  <p id="n5"> </p> </td>
+        <td>  <p id="t5">  </p> </td>
+        <td>  <p id="l5"> </p> </td>
+ 
+       <!-- <td>  <p id="n5"> <script>document.getElementById("name5").value</script> </p> </td>
+        <td>  <p id="t5"> <script>document.getElementById("time5").value</script> </p> </td>
+        <td>  <p id="l5">  00 </p> </td>-->
+      </tr>
+       
+ 
+    </table>
+ 
+</script> 
+ 
+ 
+</body>
+</html> 
+ 
+ 
+ 
+ 
+ 
+
+ 
