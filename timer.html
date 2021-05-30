@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h2 {
+            text-align: center;
+        }
+        h1{
+          text-align:center;
+        }
+        body{
+          background-image: url(https://media.istockphoto.com/photos/the-image-of-the-human-brain-a-hologram-a-dark-background-the-concept-picture-id1142471123?k=6&m=1142471123&s=612x612&w=0&h=LC6FYiCurxlPxNf-Ed3irmQT7JXUZXLIPE7SI_s-9XM=);
+          background-repeat: no-repeat;
+          background-attachment: fixed;  
+          background-size: cover;
+        }
+        div{
+          margin-left: auto;
+          margin-right:auto;
+        display: block;
+    width: 200px;
+
+
+        }
+        button {
+    color: #000000;
+    background-color: rgb(240, 234, 240);
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+    height: 75px;  
+    border-radius: 80px;
+    font-size: xx-large;
+    font-family: monospace;
+    font-weight: bold;
+}
+button:hover{
+    color: white;
+    background-color: black;
+}
+    </style>
+<title> Timer </title>
+</head>
+<body>
+  <h1>Timer</h1>
+  <h2>Set a Timer For each Of your Tasks! Once the Timer Ends, set a break time!</h2>
+<div id = "main">
+ 
+     <h2>Hours</h2>
+    <input id="userInput" type="number" value = "0" style = "height: 40px; width: 200px"/>
+    <h2>Minutes</h2>
+    <input id = "mins" type="number" value = "0" style = "height: 40px; width: 200px"/> 
+    <h2>Seconds</h2>
+    <input id = "secs" type="number" value = "0" style = "height: 40px; width: 200px"/> 
+    <h1 id="timerr"> 00 </h1>
+    <button onclick="startTime()">Start time</button>
+    <br></br>
+    <button onclick="stop()">Stop time</button>
+  </div>
+
+    <script> 
+      var myVar;
+      
+      
+      var countDownSeconds;
+      function startTime(){ 
+        console.log(document.getElementById("userInput").value*60*60);
+        var time1 = document.getElementById("userInput").value*60*60;
+        var time2 = document.getElementById("mins").value*60;
+        var time3 = document.getElementById("secs").value;
+        console.log(time1, time2);
+        myVar = setInterval(start, 1000);
+        document.getElementById("timerr").innerHTML = time1 +time2 + time3;
+        countDownSeconds = time1 + time2 + time3;
+      } 
+
+      function start(){
+        countDownSeconds--;
+        document.getElementById("timerr").innerHTML = countDownSeconds;
+        if (countDownSeconds <= -1){
+          stop();
+          document.getElementById("timerr").innerHTML = "0";  
+        }
+      }
+
+      function stop(){
+        clearInterval(myVar);
+      }
+    </script>
+</body>
+</html>
